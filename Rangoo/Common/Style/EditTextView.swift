@@ -15,6 +15,7 @@ struct EditTextView: View {
     var error: String? = ""
     var failure: Bool? = nil
     var keyboard: UIKeyboardType = .default
+    var color: Color = Color("vegan")
     var isSecure: Bool = false
     
     var body: some View {
@@ -24,12 +25,12 @@ struct EditTextView: View {
                 SecureField(placeholder, text: $text)
                     .foregroundColor(Color.black)
                     .keyboardType(keyboard)
-                    .textFieldStyle(CustomTextFieldStyle())
+                    .textFieldStyle(CustomTextFieldStyle(color: color))
             } else {
                 TextField(placeholder, text: $text)
                     .foregroundColor(Color.black)
                     .keyboardType(keyboard)
-                    .textFieldStyle(CustomTextFieldStyle())
+                    .textFieldStyle(CustomTextFieldStyle(color: color))
             }
             
             if let error = error, failure == true, !text.isEmpty {

@@ -13,6 +13,8 @@ struct ButtonStyle: View {
     var text: String
     var disabled: Bool = false
     var showProgress: Bool = false
+    var color: Color = Color("baron")
+    var icon: String = ""
     
     var body: some View {
         ZStack {
@@ -20,13 +22,25 @@ struct ButtonStyle: View {
             Button {
                 action()
             }label:{
-                Text(showProgress ? "": text)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
-                    .padding(.horizontal, 16)
-                    .foregroundColor(Color.white)
-                    .background(Color.cyan)
-                    .cornerRadius(4.0)
+                
+                if icon == "" {
+                    
+                    Text(showProgress ? "": text)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .padding(.horizontal, 16)
+                        .foregroundColor(Color.white)
+                        .background(color)
+                        .cornerRadius(4.0)
+               
+                } else {
+                    
+                    Image(icon)
+                        .resizable()
+                        .scaledToFit()
+                        
+                    
+                }
             }
             .disabled(disabled || showProgress)
             

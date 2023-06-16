@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import GoogleSignIn
+import GoogleSignInSwift
+import Firebase
 import SwiftUI
 
 struct SignInView: View {
@@ -28,22 +31,20 @@ struct SignInView: View {
                             Image("logo") // TODO: Criar Logo
                                 .resizable()
                                 .scaledToFit()
-                                .padding(.top, 100)
+                                .padding(.top, 80)
                                 .padding(.horizontal, 10)
                             
-                            Spacer(minLength: 100)
 
-                            VStack(alignment: .center, spacing: 15){
-                                
-                                emailView
-                                
+                            VStack(alignment: .center, spacing: 25){
+                            
                                 VStack{
+                                    emailView
                                     passwordView
                                     forgotPasswordButton
                                 }
                                 
-                                buttonLoginGoogle
                                 buttonLogin
+                                buttonLoginGoogle
                                 Text("ou")
                                 signUpButton
                                 
@@ -66,7 +67,7 @@ extension SignInView {
         EditTextView(placeholder: "Email",
                      text: $viewModel.email,
                      error: "Email Inválido",
-                     failure: !viewModel.email.isEmail())
+                     failure: !viewModel.email.isEmail(), color: Color("dark"))
     }
 }
 
@@ -77,7 +78,7 @@ extension SignInView{
                      text: $viewModel.password,
                      error: "Senha Inválida",
                      failure: viewModel.password.count < 8,
-                     keyboard: .emailAddress, isSecure: true)
+                     keyboard: .emailAddress, color: Color("dark"), isSecure: true)
     }
 }
 
@@ -88,7 +89,7 @@ extension SignInView {
             //TODO: Adicionar Acao
         }, text: "Entrar",
                     disabled: !viewModel.email.isEmail() || viewModel.password.count < 8,
-                    showProgress: self.viewModel.uiState == SignInUIState.loading)
+                    showProgress: self.viewModel.uiState == SignInUIState.loading, color: Color("baron"))
     }
 }
 
@@ -97,10 +98,12 @@ extension SignInView {
     // TODO: Desenvolver design para button do google
     var buttonLoginGoogle: some View {
         ButtonStyle(action: {
-            //TODO: Adicionar Acao Login com Google
-        }, text: "Entrar",
+           
+        }, text: "Entrar com Google",
                     disabled: !viewModel.email.isEmail() || viewModel.password.count < 8,
-                    showProgress: self.viewModel.uiState == SignInUIState.loading)
+                    showProgress: self.viewModel.uiState == SignInUIState.loading, icon: "google_icon")
+        .frame(maxWidth: 25, maxHeight: 25)
+        .padding(.top, 20)
     }
 }
 
@@ -110,7 +113,7 @@ extension SignInView {
         HStack{
             Spacer()
             Button(action: {
-                //TODO: Definir acao de recuperar senha
+                viewModel.loginGoogleUser()
             }, label: {
                 Text("Redefinir Senha")
                     .foregroundColor(Color.gray)
