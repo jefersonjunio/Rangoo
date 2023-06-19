@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>806586442475-ido2vcl3l33v6hee5s7p1bg6n0fgoao8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.806586442475-ido2vcl3l33v6hee5s7p1bg6n0fgoao8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDZFokp_7HbLn6TvF9hNe_g35Na756AVWE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>806586442475</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.coltec.ufmg.Rangoo</string>
+	<key>PROJECT_ID</key>
+	<string>rangooapp-16032</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rangooapp-16032.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:806586442475:ios:da91308fce697942ad14ae</string>
+</dict>
+</plist>

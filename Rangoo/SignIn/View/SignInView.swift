@@ -98,10 +98,8 @@ extension SignInView {
     // TODO: Desenvolver design para button do google
     var buttonLoginGoogle: some View {
         ButtonStyle(action: {
-           
-        }, text: "Entrar com Google",
-                    disabled: !viewModel.email.isEmail() || viewModel.password.count < 8,
-                    showProgress: self.viewModel.uiState == SignInUIState.loading, icon: "google_icon")
+            viewModel.loginGoogleUser()
+        }, text: "Entrar com Google", showProgress: self.viewModel.uiState == SignInUIState.loading, icon: "google_icon")
         .frame(maxWidth: 25, maxHeight: 25)
         .padding(.top, 20)
     }
@@ -113,7 +111,7 @@ extension SignInView {
         HStack{
             Spacer()
             Button(action: {
-                viewModel.loginGoogleUser()
+                
             }, label: {
                 Text("Redefinir Senha")
                     .foregroundColor(Color.gray)
